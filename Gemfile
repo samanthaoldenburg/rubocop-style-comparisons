@@ -76,10 +76,7 @@ group :development, :test do
   gem 'fasterer'
   gem 'license_finder', require: false
   gem 'overcommit'
-  gem 'rubocop', require: false
-  gem 'rubocop-performance'
-  gem 'rubocop-rails', require: false
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop-rails-omakase'
 end
 
 group :development do
