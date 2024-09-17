@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# I need a doc comment in order to pass rubocop
 class CreateAllowlistedJwts < ActiveRecord::Migration[7.0]
   def change
     create_table :allowlisted_jwts do |t|

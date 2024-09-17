@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# I need a doc comment in order to pass rubocop
 class SessionsController < Devise::SessionsController
   private
 

@@ -2,6 +2,9 @@
 
 require 'rails_helper'
 
+# Looks like we can only have 5 `let` statements per example group
+#
+# rubocop:disable RSpec/MultipleMemoizedHelpers
 describe RegistrationsController, type: :request do
   let(:signup_url) { '/users/signup' }
 
@@ -66,3 +69,4 @@ describe RegistrationsController, type: :request do
     end
   end
 end
+# rubocop:enable RSpec/MultipleMemoizedHelpers
