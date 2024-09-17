@@ -2,14 +2,14 @@
 
 module AuthenticationHelper
   def login(user)
-    post user_session_path, params: {
+    post(user_session_path, params: {
       user: {
         email: user.email,
-        password: user.password
-      }
-    }
+        password: user.password,
+      },
+    })
 
-    @loggedin_user_token = response.headers['Authorization']
+    @loggedin_user_token = response.headers["Authorization"]
   end
 
   def loggedin_user_token
@@ -18,11 +18,11 @@ module AuthenticationHelper
 
   def auth_header
     {
-      Authorization: loggedin_user_token
+      Authorization: loggedin_user_token,
     }
   end
 end
 
 RSpec.configure do |config|
-  config.include AuthenticationHelper
+  config.include(AuthenticationHelper)
 end

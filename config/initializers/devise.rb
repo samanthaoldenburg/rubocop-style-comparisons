@@ -14,7 +14,10 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
+
+  # rubocop:disable Layout/LineLength
   # config.secret_key = '07106354f6c1eb223bf933c87d353456a9fa7a423b8ebd94475b79358d6b72f721a64eabff1dcbfc6e7690f8ad2e8d7337a69e167efa71e3bff2b7b80493cdb2'
+  # rubocop:enable Layout/LineLength
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,7 +27,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -36,7 +39,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -126,7 +129,10 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
+
+  # rubocop:disable Layout/LineLength
   # config.pepper = 'e041c1db0c0afb88a2511620b82ca4dd0a97b9e550003cc983e519a87a2d56ea318279480a92c1a4f7aac0bc314e3ca3dfaac25d71b800de41d84b388e6b0e66'
+  # rubocop:enable Layout/LineLength
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -311,12 +317,12 @@ Devise.setup do |config|
 
   # JWT Devise
   config.jwt do |jwt|
-    jwt.secret = ENV.fetch('DEVISE_JWT_SECRET_KEY')
+    jwt.secret = ENV.fetch("DEVISE_JWT_SECRET_KEY")
     jwt.dispatch_requests = [
-      ['POST', %r{^/users/login$}]
+      ["POST", %r{^/users/login$}],
     ]
     jwt.revocation_requests = [
-      ['DELETE', %r{^/users/logout$}]
+      ["DELETE", %r{^/users/logout$}],
     ]
     jwt.expiration_time = 1.day.to_i
   end

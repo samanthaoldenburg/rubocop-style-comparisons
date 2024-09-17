@@ -10,10 +10,10 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def register_success(resource)
-    render jsonapi: resource
+    render(jsonapi: resource)
   end
 
   def register_failed(resource)
-    render jsonapi_errors: resource.errors, status: :bad_request
+    render(jsonapi_errors: resource.errors, status: :bad_request)
   end
 end

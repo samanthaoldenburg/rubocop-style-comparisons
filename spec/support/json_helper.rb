@@ -7,5 +7,5 @@ module JsonHelper
 end
 
 RSpec.configure do |config|
-  config.include JsonHelper
+  config.include(JsonHelper)
 end

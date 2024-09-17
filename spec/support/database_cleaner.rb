@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'database_cleaner/active_record'
+require "database_cleaner/active_record"
 
 RSpec.configure do |config|
   # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
