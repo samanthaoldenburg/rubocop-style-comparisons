@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 describe RegistrationsController, type: :request do
-  let(:signup_url) { '/users/signup' }
+  let(:signup_url) { "/users/signup" }
 
   let!(:existing_user) { create(:user) }
   let(:email) { Faker::Internet.email }
@@ -23,46 +23,46 @@ describe RegistrationsController, type: :request do
     post signup_url, params: attributes
   end
 
-  context 'when creating a new user' do
-    it 'returns 200' do
+  context "when creating a new user" do
+    it "returns 200" do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'does not return token' do
+    it "does not return token" do
       # we need to login after registartion
-      expect(response.headers['Authorization']).to be_nil
+      expect(response.headers["Authorization"]).to be_nil
     end
 
-    it 'returns the attributes' do
-      expect(json['data']).to have_jsonapi_attributes(:email, :sign_in_count, :created_at)
+    it "returns the attributes" do
+      expect(json["data"]).to have_jsonapi_attributes(:email, :sign_in_count, :created_at)
     end
 
-    it 'returns the user email' do
-      expect(json['data']).to have_attribute(:email).with_value(email)
+    it "returns the user email" do
+      expect(json["data"]).to have_attribute(:email).with_value(email)
     end
   end
 
-  context 'when an email already exists' do
+  context "when an email already exists" do
     let(:email) { existing_user.email }
 
-    it 'returns 400' do
+    it "returns 400" do
       expect(response).to have_http_status(:bad_request)
     end
 
-    it 'returns the taken message' do
-      expect(json).to have_error('code' => 'taken')
+    it "returns the taken message" do
+      expect(json).to have_error("code" => "taken")
     end
   end
 
-  context 'when password and confirmation are not match' do
-    let(:password_confirmation) { '123456Aa!' }
+  context "when password and confirmation are not match" do
+    let(:password_confirmation) { "123456Aa!" }
 
-    it 'returns 400' do
+    it "returns 400" do
       expect(response).to have_http_status(:bad_request)
     end
 
-    it 'returns the confirmation message' do
-      expect(json).to have_error('code' => 'confirmation')
+    it "returns the confirmation message" do
+      expect(json).to have_error("code" => "confirmation")
     end
   end
 end

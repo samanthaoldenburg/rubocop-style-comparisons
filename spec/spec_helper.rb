@@ -15,11 +15,11 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'simplecov'
+require "simplecov"
 
-SimpleCov.start 'rails' do
-  add_group 'Services', 'app/services'
-  add_group 'Policies', 'app/policies'
+SimpleCov.start "rails" do
+  add_group "Services", "app/services"
+  add_group "Policies", "app/policies"
 end
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

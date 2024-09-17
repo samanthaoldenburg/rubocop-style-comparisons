@@ -9,7 +9,7 @@ module AuthenticationHelper
       }
     }
 
-    @loggedin_user_token = response.headers['Authorization']
+    @loggedin_user_token = response.headers["Authorization"]
   end
 
   def loggedin_user_token
