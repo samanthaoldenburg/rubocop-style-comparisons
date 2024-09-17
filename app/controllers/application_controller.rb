@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   after_action { pagy_headers_merge(@pagy) if @pagy }
 
   def website
-    render template: 'layouts/website'
+    render template: "layouts/website"
   end
 
   def panel
     return redirect_to website_path unless user_signed_in?
 
-    render template: 'layouts/panel'
+    render template: "layouts/panel"
   end
 end
